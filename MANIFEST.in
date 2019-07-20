@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include ccij *.css
+recursive-include ccij *.csv
+recursive-include ccij *.html
+recursive-include ccij *.ico
+recursive-include ccij *.js
+recursive-include ccij *.json
+recursive-include ccij *.md
+recursive-include ccij *.png
+recursive-include ccij *.py
+recursive-include ccij *.svg
+recursive-include ccij *.txt
+recursive-exclude ccij *.pyc
