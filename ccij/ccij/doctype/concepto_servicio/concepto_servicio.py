@@ -6,8 +6,5 @@ from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
 
-class Representacion(Document):
+class ConceptoServicio(Document):
 	pass
-	# 
-	# def validate(self):
-	# 	self.db_set('mes_entrega', self.entrega.month)

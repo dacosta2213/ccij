@@ -15,6 +15,10 @@ frappe.ui.form.on('Representacion', {
 		$('.btn[data-fieldname=sync_calendar]').addClass('btn-success');
 
 	},
+	validate: function(frm) {
+		frm.set_value('mes_entrega', moment(cur_frm.doc.entrega).month() +1 )
+
+	},
 	onload: function(frm) {
 		// $.getScript("https://apis.google.com/js/api.js")
 	},
@@ -72,7 +76,8 @@ var gcal_refresh = function(frm,refresh_token){
 var gcal_insert = function(frm,access_token){
 	// console.log('bod: ',body_req , 'at:' ,access_token )
 	var body_req = {
-		'summary': frm.doc.name,
+		'summary': frm.doc.nombre,
+		'attendees': [ { 'email': frm.doc.usuario }  ],
 		'start': {
 			'dateTime': moment(frm.doc.inicio).format("YYYY-MM-DDTHH:mm:ss.SSS[-07:00]")
 		},
