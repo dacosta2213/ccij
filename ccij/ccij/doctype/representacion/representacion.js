@@ -79,10 +79,10 @@ var gcal_insert = function(frm,access_token){
 		'summary': frm.doc.nombre,
 		'attendees': [ { 'email': frm.doc.usuario }  ],
 		'start': {
-			'dateTime': moment(frm.doc.inicio).format("YYYY-MM-DDTHH:mm:ss.SSS[-07:00]")
+			'dateTime': moment(frm.doc.inicio).format("YYYY-MM-DDTHH:mm:ss.SSS[-06:00]")
 		},
 		'end': {
-			'dateTime': moment(frm.doc.final).format("YYYY-MM-DDTHH:mm:ss.SSS[-07:00]")
+			'dateTime': moment(frm.doc.final).format("YYYY-MM-DDTHH:mm:ss.SSS[-06:00]")
 		},
 	}
 	fetch(
@@ -108,7 +108,7 @@ var gcal_insert = function(frm,access_token){
 }
 
 
-
+// RG- De aqui para abajo, todo es innecesario
 
 var authorizeButton = $('.btn[data-fieldname=sync_calendar]')
 var signoutButton = document.getElementById('signout_button');

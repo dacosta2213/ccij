@@ -8,6 +8,7 @@ frappe.ui.form.on("Concepto Servicio", "item_code", function(frm, cdt, cdn) {
 frappe.ui.form.on('Servicio', {
 	refresh: function(frm) {
 		var itotal = 0;
+		var htotal = 0;
 
 		$(cur_frm.doc.items).each(function(index){
 			renglon = cur_frm.fields_dict.items.grid.grid_rows[index].doc;
@@ -15,12 +16,15 @@ frappe.ui.form.on('Servicio', {
 			let amount = renglon.qty * renglon.rate
 			renglon.amount = amount
 			itotal += parseFloat(amount);
+			htotal += parseFloat(renglon.qty);
 		});
 		cur_frm.set_value("total", itotal);
+		cur_frm.set_value("total_horas", htotal);
 
 	},
 	validate: function(frm) {
 		var itotal = 0;
+		var htotal = 0;
 
 		$(cur_frm.doc.items).each(function(index){
 			renglon = cur_frm.fields_dict.items.grid.grid_rows[index].doc;
@@ -28,8 +32,10 @@ frappe.ui.form.on('Servicio', {
 			let amount = renglon.qty * renglon.rate
 			renglon.amount = amount
 			itotal += parseFloat(amount);
+			htotal += parseFloat(renglon.qty);
 		});
 		cur_frm.set_value("total", itotal);
+		cur_frm.set_value("total_horas", htotal);
 
 	}
 
